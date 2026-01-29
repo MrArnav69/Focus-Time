@@ -1,5 +1,5 @@
 {
-  "name": "Focus Time",
+  "name": "focus-time",
   "scripts": {
     "start": "npx -y serve . -p 3000",
     "dev": "npx -y serve . -p 3000 & sleep 2 && open http://localhost:3000"

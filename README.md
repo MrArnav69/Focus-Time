@@ -21,9 +21,12 @@ A beautiful, aesthetic focus timer web app with a coffee cup that drains as time
 
 ## Quick Start
 
-### Option 1: Double-click launcher (macOS)
+### Option 1: Double-click launcher
 
-Double-click `start-focus-time.command` in Finder. It will start the server and open your browser automatically.
+- **macOS:** Double-click `start-focus-time.command` in Finder.
+- **Windows:** Double-click `start-focus-time.bat` in File Explorer.
+
+It will start the server and open your browser automatically.
 
 ### Option 2: Command line
 
@@ -62,6 +65,7 @@ The YouTube IFrame API (used for ambient music) requires the app to run on `http
 Focus-Time/
 ├── index.html                 # Main app
 ├── start-focus-time.command   # macOS launcher
+├── start-focus-time.bat       # Windows launcher
 ├── package.json               # npm scripts
 ├── css/
 │   └── styles.css            # Design system
