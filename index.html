@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Focus Time - A beautiful focus timer with ambient music to help you concentrate"
+    />
+    <title>Focus Time</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Header -->
+      <header class="header">
+        <div class="logo">
+          <span class="logo-icon">☕</span>
+          <span>Focus Time</span>
+        </div>
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          aria-label="Toggle theme"
+        >
+          <div class="theme-toggle-knob">
+            <span class="theme-icon theme-icon-moon">🌙</span>
+            <span class="theme-icon theme-icon-sun">☀️</span>
+          </div>
+        </button>
+      </header>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Coffee Cup -->
+        <div class="coffee-container">
+          <div class="coffee-cup-wrapper">
+            <!-- Steam particles -->
+            <div class="steam-container">
+              <div class="steam"></div>
+              <div class="steam"></div>
+              <div class="steam"></div>
+              <div class="steam"></div>
+              <div class="steam"></div>
+            </div>
+
+            <!-- Inline SVG for better control -->
+            <svg
+              class="coffee-cup-svg"
+              viewBox="0 0 160 200"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient
+                  id="cupGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="0%"
+                >
+                  <stop offset="0%" style="stop-color: #e8e4e1" />
+                  <stop offset="50%" style="stop-color: #f5f1ee" />
+                  <stop offset="100%" style="stop-color: #d4cfc9" />
+                </linearGradient>
+                <linearGradient id="cupInner" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color: #c4beb8" />
+                  <stop offset="100%" style="stop-color: #a89f97" />
+                </linearGradient>
+                <linearGradient
+                  id="coffeeGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="0%"
+                  y2="100%"
+                >
+                  <stop offset="0%" style="stop-color: #8b4513" />
+                  <stop offset="30%" style="stop-color: #6b3410" />
+                  <stop offset="100%" style="stop-color: #4a2508" />
+                </linearGradient>
+                <linearGradient
+                  id="saucerGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="0%"
+                  y2="100%"
+                >
+                  <stop offset="0%" style="stop-color: #f5f1ee" />
+                  <stop offset="100%" style="stop-color: #d4cfc9" />
+                </linearGradient>
+                <clipPath id="cupClip">
+                  <rect x="35" y="45" width="70" height="85" rx="5" />
+                </clipPath>
+              </defs>
+              <ellipse
+                cx="80"
+                cy="185"
+                rx="50"
+                ry="8"
+                fill="rgba(0,0,0,0.15)"
+              />
+              <ellipse
+                cx="80"
+                cy="175"
+                rx="55"
+                ry="12"
+                fill="url(#saucerGradient)"
+                stroke="#C4BEB8"
+                stroke-width="1"
+              />
+              <ellipse cx="80" cy="173" rx="35" ry="6" fill="#E8E4E1" />
+              <path
+                d="M30 50 Q25 50 25 55 L30 135 Q30 145 40 150 L100 150 Q110 145 110 135 L115 55 Q115 50 110 50 Z"
+                fill="url(#cupGradient)"
+                stroke="#C4BEB8"
+                stroke-width="1"
+              />
+              <ellipse cx="70" cy="50" rx="42" ry="8" fill="url(#cupInner)" />
+              <ellipse cx="70" cy="48" rx="38" ry="6" fill="#8B7355" />
+              <g clip-path="url(#cupClip)">
+                <rect
+                  id="coffee-liquid"
+                  x="35"
+                  y="45"
+                  width="70"
+                  height="85"
+                  fill="url(#coffeeGradient)"
+                />
+              </g>
+              <path
+                d="M110 65 Q130 65 135 85 Q140 105 125 120 Q115 130 110 125"
+                fill="none"
+                stroke="url(#cupGradient)"
+                stroke-width="12"
+                stroke-linecap="round"
+              />
+              <path
+                d="M110 65 Q125 65 130 85 Q134 100 122 115 Q114 122 110 120"
+                fill="none"
+                stroke="#C4BEB8"
+                stroke-width="1"
+              />
+              <ellipse
+                cx="70"
+                cy="50"
+                rx="42"
+                ry="8"
+                fill="none"
+                stroke="rgba(255,255,255,0.4)"
+                stroke-width="1"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Timer Display -->
+        <div class="timer-display">
+          <div class="timer-time" id="timer-display">00:00</div>
+          <div class="timer-label" id="timer-label">Select Duration</div>
+          <div class="progress-container" id="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Time Selection -->
+        <div class="time-selection">
+          <button class="time-btn" data-minutes="30">30 min</button>
+          <button class="time-btn" data-minutes="60">1 hour</button>
+          <button class="time-btn" data-minutes="120">2 hours</button>
+          <button class="time-btn" data-minutes="180">3 hours</button>
+          <button class="time-btn time-btn-custom" id="custom-time-btn">
+            Custom
+          </button>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+          <button class="control-btn control-btn-primary hidden" id="start-btn">
+            ▶ Start
+          </button>
+          <button class="control-btn control-btn-primary hidden" id="pause-btn">
+            ⏸ Pause
+          </button>
+          <button
+            class="control-btn control-btn-secondary hidden"
+            id="reset-btn"
+          >
+            ↺ Reset
+          </button>
+        </div>
+
+        <!-- Music Panel -->
+        <div class="music-panel">
+          <button class="music-toggle" id="music-toggle">
+            <span>🎵</span>
+            <span>Ambient Music</span>
+            <span class="music-toggle-icon">▼</span>
+          </button>
+          <div class="music-options" id="music-options">
+            <div class="music-grid">
+              <button class="music-btn" data-track="brown-noise">
+                <span class="music-btn-icon">🌊</span>
+                <span>Brown Noise</span>
+              </button>
+              <button class="music-btn" data-track="white-noise">
+                <span class="music-btn-icon">📻</span>
+                <span>White Noise</span>
+              </button>
+              <button class="music-btn" data-track="pink-noise">
+                <span class="music-btn-icon">🌸</span>
+                <span>Pink Noise</span>
+              </button>
+              <button class="music-btn" data-track="memory-reboot">
+                <span class="music-btn-icon">🎹</span>
+                <span>Memory Reboot</span>
+              </button>
+              <button class="music-btn" data-track="interstellar">
+                <span class="music-btn-icon">🚀</span>
+                <span>Interstellar</span>
+              </button>
+              <button class="music-btn" data-track="oppenheimer">
+                <span class="music-btn-icon">💥</span>
+                <span>Oppenheimer</span>
+              </button>
+            </div>
+            <div class="music-now-playing hidden" id="now-playing">
+              <span class="now-playing-text"
+                >Now Playing:
+                <span class="now-playing-title" id="now-playing-title"></span
+              ></span>
+              <div class="volume-control">
+                <span>🔊</span>
+                <input
+                  type="range"
+                  class="volume-slider"
+                  id="volume-slider"
+                  min="0"
+                  max="100"
+                  value="50"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Quote Section -->
+      <footer class="quote-section">
+        <div class="quote-container">
+          <p class="quote-text" id="quote-text">"Loading inspiration..."</p>
+          <p class="quote-author" id="quote-author"></p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Custom Time Modal -->
+    <div class="modal-overlay" id="custom-time-modal">
+      <div class="modal">
+        <h2 class="modal-title">Custom Duration</h2>
+        <div class="modal-inputs">
+          <div class="modal-input-group">
+            <label class="modal-input-label" for="custom-hours">Hours</label>
+            <input
+              type="number"
+              class="modal-input"
+              id="custom-hours"
+              min="0"
+              max="12"
+              placeholder="0"
+            />
+          </div>
+          <div class="modal-input-group">
+            <label class="modal-input-label" for="custom-minutes"
+              >Minutes</label
+            >
+            <input
+              type="number"
+              class="modal-input"
+              id="custom-minutes"
+              min="0"
+              max="59"
+              placeholder="25"
+            />
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button class="modal-btn modal-btn-cancel" id="modal-cancel">
+            Cancel
+          </button>
+          <button class="modal-btn modal-btn-confirm" id="modal-confirm">
+            Start
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rest Options Overlay -->
+    <div class="complete-overlay" id="rest-overlay">
+      <div class="complete-icon">🎉</div>
+      <h2 class="complete-title">Session Complete!</h2>
+      <p class="complete-subtitle">Great focus! Take a well-deserved break.</p>
+      <div class="complete-options">
+        <button class="time-btn rest-btn" data-minutes="0">End</button>
+        <button class="time-btn rest-btn" data-minutes="5">5 min</button>
+        <button class="time-btn rest-btn" data-minutes="10">10 min</button>
+        <button class="time-btn rest-btn" data-minutes="25">25 min</button>
+        <button
+          class="time-btn time-btn-custom rest-btn"
+          onclick="
+            document.getElementById('rest-overlay').dataset.nextMode = 'rest';
+            app.showModal('custom-time-modal');
+          "
+        >
+          Custom
+        </button>
+      </div>
+    </div>
+
+    <!-- Focus Options Overlay (after rest) -->
+    <div class="complete-overlay" id="focus-overlay">
+      <div class="complete-icon">⚡</div>
+      <h2 class="complete-title">Break Over!</h2>
+      <p class="complete-subtitle">Ready for another focus session?</p>
+      <div class="complete-options">
+        <button class="time-btn focus-btn" data-minutes="0">End</button>
+        <button class="time-btn focus-btn" data-minutes="30">30 min</button>
+        <button class="time-btn focus-btn" data-minutes="60">1 hour</button>
+        <button class="time-btn focus-btn" data-minutes="90">1.5 hours</button>
+        <button class="time-btn focus-btn" data-minutes="120">2 hours</button>
+        <button
+          class="time-btn time-btn-custom focus-btn"
+          onclick="
+            document.getElementById('focus-overlay').dataset.nextMode = 'focus';
+            app.showModal('custom-time-modal');
+          "
+        >
+          Custom
+        </button>
+      </div>
+    </div>
+
+    <!-- Hidden YouTube Players Container -->
+    <div class="youtube-players" id="youtube-players" aria-hidden="true"></div>
+
+    <!-- Keyboard Hints -->
+    <div class="keyboard-hint">
+      <kbd>Space</kbd> Play/Pause · <kbd>R</kbd> Reset · <kbd>M</kbd> Music ·
+      <kbd>T</kbd> Theme
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/quotes.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/music.js"></script>
+    <script src="js/sounds.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<svg viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients for cup -->
+    <linearGradient id="cupGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#E8E4E1"/>
+      <stop offset="50%" style="stop-color:#F5F1EE"/>
+      <stop offset="100%" style="stop-color:#D4CFC9"/>
+    </linearGradient>
+    
+    <linearGradient id="cupInner" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#C4BEB8"/>
+      <stop offset="100%" style="stop-color:#A89F97"/>
+    </linearGradient>
+    
+    <linearGradient id="coffeeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B4513"/>
+      <stop offset="30%" style="stop-color:#6B3410"/>
+      <stop offset="100%" style="stop-color:#4A2508"/>
+    </linearGradient>
+    
+    <linearGradient id="saucerGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F1EE"/>
+      <stop offset="100%" style="stop-color:#D4CFC9"/>
+    </linearGradient>
+    
+    <!-- Clip path for coffee inside cup -->
+    <clipPath id="cupClip">
+      <rect x="35" y="45" width="70" height="85" rx="5"/>
+    </clipPath>
+  </defs>
+  
+  <!-- Shadow under saucer -->
+  <ellipse cx="80" cy="185" rx="50" ry="8" fill="rgba(0,0,0,0.15)"/>
+  
+  <!-- Saucer -->
+  <ellipse cx="80" cy="175" rx="55" ry="12" fill="url(#saucerGradient)" stroke="#C4BEB8" stroke-width="1"/>
+  <ellipse cx="80" cy="173" rx="35" ry="6" fill="#E8E4E1"/>
+  
+  <!-- Cup body -->
+  <path d="M30 50 
+           Q25 50 25 55 
+           L30 135 
+           Q30 145 40 150 
+           L100 150 
+           Q110 145 110 135 
+           L115 55 
+           Q115 50 110 50 
+           Z" 
+        fill="url(#cupGradient)" 
+        stroke="#C4BEB8" 
+        stroke-width="1"/>
+  
+  <!-- Cup inner rim -->
+  <ellipse cx="70" cy="50" rx="42" ry="8" fill="url(#cupInner)"/>
+  <ellipse cx="70" cy="48" rx="38" ry="6" fill="#8B7355"/>
+  
+  <!-- Coffee liquid (animated via JS) -->
+  <g clip-path="url(#cupClip)">
+    <rect id="coffee-liquid" 
+          x="35" y="45" 
+          width="70" height="85" 
+          fill="url(#coffeeGradient)"/>
+  </g>
+  
+  <!-- Coffee surface highlight -->
+  <ellipse cx="70" cy="48" rx="35" ry="5" fill="rgba(139,67,19,0.8)" id="coffee-surface"/>
+  
+  <!-- Cup handle -->
+  <path d="M110 65 
+           Q130 65 135 85 
+           Q140 105 125 120 
+           Q115 130 110 125" 
+        fill="none" 
+        stroke="url(#cupGradient)" 
+        stroke-width="12"
+        stroke-linecap="round"/>
+  <path d="M110 65 
+           Q125 65 130 85 
+           Q134 100 122 115 
+           Q114 122 110 120" 
+        fill="none" 
+        stroke="#C4BEB8" 
+        stroke-width="1"/>
+  
+  <!-- Cup rim highlight -->
+  <ellipse cx="70" cy="50" rx="42" ry="8" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+</svg>

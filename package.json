@@ -1,0 +1,11 @@
+{
+  "name": "Focus Time",
+  "scripts": {
+    "start": "npx -y serve . -p 3000",
+    "dev": "npx -y serve . -p 3000 & sleep 2 && open http://localhost:3000"
+  },
+  "description": "A beautiful focus timer with coffee cup animation and ambient music",
+  "version": "1.0.0",
+  "author": "MrArnav69",
+  "license": "MIT"
+}
