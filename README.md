@@ -1,88 +1,78 @@
-# Focus Time ☕
+# Focus Time
 
-A beautiful, aesthetic focus timer web app with a coffee cup that drains as time passes, ambient music integration, and inspirational quotes.
+Focus Time is a minimalist productivity application designed to facilitate deep work through visual progress tracking and ambient audio integration. The application features a dynamic visual representation of time remaining and provides tools for managing work-rest cycles.
 
-![Focus Time](https://img.shields.io/badge/version-1.0.0-blue) ![License](https://img.shields.io/badge/license-MIT-green)
+## Core Features
 
-## Features
+- **Visual Progress Tracking**: A dynamic coffee cup illustration that serves as a progress indicator, visualising the depletion of time during focus sessions.
+- **Configurable Timer**: Support for standard presets (30, 60, 120, 180 minutes) and custom duration inputs.
+- **Session Management**: Automated workflows for transitioning between focus blocks and rest periods.
+- **Ambient Audio Integration**: Integrated support for six audio profiles, including various noise spectrums (Brown, White, Pink) and curated cinematic soundtracks.
+- **Curated Content**: A rotation of over 75 productivity and focus-oriented quotations.
+- **Interface Support**: Native Dark and Light modes with system-level preference detection.
+- **Accessibility**: Comprehensive keyboard navigation and shortcuts for all core functions.
+- **Audio Notifications**: High-fidelity notification tones for session completion using the Web Audio API.
 
-- ☕ **Coffee Cup Animation** - Beautiful SVG cup that drains as your timer progresses
-- ⏱️ **Focus Timer** - Preset options (30min, 1hr, 2hr, 3hr) + custom duration
-- 😴 **Rest Timer** - Smart break options after each focus session
-- 🎵 **Ambient Music** - 6 YouTube tracks including:
-  - Brown Noise, White Noise, Pink Noise
-  - Interstellar (Hans Zimmer)
-  - Oppenheimer (Ludwig Göransson)
-  - Memory Reboot
-- 💬 **Inspirational Quotes** - 75+ curated quotes rotating every 60 seconds
-- 🌙 **Theme Toggle** - Dark/Light mode with smooth transitions
-- ⌨️ **Keyboard Shortcuts** - Full keyboard control
-- 🔊 **Sound Effects** - Pleasant completion notifications
+## Installation and Setup
 
-## Quick Start
+Focus Time utilizes the YouTube IFrame API for audio playback, which requires the application to be served via the HTTP/HTTPS protocol.
 
-### Option 1: Double-click launcher
+### Prerequisites
 
-- **macOS:** Double-click `start-focus-time.command` in Finder.
-- **Windows:** Double-click `start-focus-time.bat` in File Explorer.
+- Node.js (for serving the application via npm or npx)
+- A modern web browser (Chrome, Firefox, or Safari)
 
-It will start the server and open your browser automatically.
+### Quick Start
 
-### Option 2: Command line
+#### macOS
 
-```bash
-cd /Users/mrarnav69/Documents/Focus-Time
-npm start
-```
+Execute `start-focus-time.command` from the project root. This script initializes the local server and opens the application in the default browser.
 
-Then open http://localhost:3000
+#### Windows
 
-### Option 3: Using npx
+Execute `start-focus-time.bat` from the project root. This script initializes the local server and opens the application in the default browser.
 
-```bash
-cd /Users/mrarnav69/Documents/Focus-Time
-npx serve . -p 3000
-```
+#### Manual Execution
+
+1. Navigate to the project directory in your terminal.
+2. Execute `npm start` or `npx serve . -p 3000`.
+3. Access the application at `http://localhost:3000`.
 
 ## Keyboard Shortcuts
 
-| Key     | Action                   |
-| ------- | ------------------------ |
-| `Space` | Start/Pause timer        |
-| `R`     | Reset timer              |
-| `M`     | Toggle music panel       |
-| `T`     | Toggle theme             |
-| `1-6`   | Quick select music track |
-| `Esc`   | Close modals             |
+| Shortcut | Action                |
+| -------- | --------------------- |
+| `Space`  | Play / Pause          |
+| `R`      | Reset Timer           |
+| `M`      | Toggle Audio Panel    |
+| `T`      | Toggle Theme          |
+| `1-6`    | Audio Track Selection |
+| `Esc`    | Close Active Modals   |
 
-## Why a Local Server?
+## Technical Architecture
 
-The YouTube IFrame API (used for ambient music) requires the app to run on `http://` or `https://` protocol. Opening the HTML file directly (`file://`) won't allow music playback due to browser security restrictions.
+The application is built using standard web technologies (HTML5, CSS3, ES6 JavaScript) with no external framework dependencies to ensure high performance and low overhead.
 
-## Project Structure
+### Project Structure
 
-```
+```text
 Focus-Time/
-├── index.html                 # Main app
-├── start-focus-time.command   # macOS launcher
-├── start-focus-time.bat       # Windows launcher
-├── package.json               # npm scripts
+├── index.html                   # Main application entry point
+├── start-focus-time.command     # macOS initialization script
+├── start-focus-time.bat         # Windows initialization script
+├── package.json                 # Project metadata and dependencies
 ├── css/
-│   └── styles.css            # Design system
+│   └── styles.css              # Core design system and layout
 ├── js/
-│   ├── app.js                # Main logic
-│   ├── timer.js              # Timer functionality
-│   ├── music.js              # YouTube integration
-│   ├── quotes.js             # Quote rotation
-│   └── sounds.js             # Sound effects
+│   ├── app.js                  # Application orchestration
+│   ├── timer.js                # Core timing logic
+│   ├── music.js                # YouTube API integration
+│   ├── quotes.js               # Content management
+│   └── sounds.js               # Web Audio API implementation
 └── assets/
-    └── coffee-cup.svg        # Cup graphic
+    └── coffee-cup.svg          # Visual assets
 ```
 
 ## License
 
-MIT License - feel free to use and modify!
-
----
-
-Made with ❤️ for focused productivity
+This project is licensed under the MIT License.
